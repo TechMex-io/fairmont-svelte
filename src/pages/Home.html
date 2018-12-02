@@ -1,0 +1,14 @@
+<Header title={$homepage.title} location={$homepage.location} cta={$homepage.ctaText} />
+<About title={$homepage.aboutTitle} text1={$homepage.aboutText} text2={$homepage.aboutTextTwo} />
+
+<script>
+	import Header from '../components/Header.html';
+	import About from '../components/About.html';
+
+  export default {
+    components: {
+      Header,
+      About
+		},
+  }
+</script>

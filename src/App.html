@@ -1,0 +1,56 @@
+<div id="app">
+	<Nav />
+</div>
+
+
+
+
+<script>
+	import SvelteRouter from 'svelte-router';
+	import {store} from './store';
+
+  import Nav from './components/Nav.html';
+
+	import Home from './pages/Home.html';
+	import Page from './pages/Page.html';
+
+	const router = new SvelteRouter({
+    mode: 'hash',
+    routes: {
+			'/': {
+				Component: Home,
+				props: {
+					store,
+				}
+			},
+
+			'/:page': {
+				Component: Page,
+				props: {
+					store,
+				}
+			}
+		},
+	});
+
+	export default {
+		oncreate() {
+			router.create('#app');
+		},
+		
+		ondestroy () {
+      router.destroy()
+		},
+		
+		components: {
+			Nav,
+		},
+		
+	}
+</script>
+
+
+
+<style>
+
+</style>

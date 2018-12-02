@@ -1,0 +1,39 @@
+<section id="about" class="mb-24 py-32 about">
+  <div class="container sm:w-4/5 mx-auto">
+    <h2 class="text-center uppercase text-4xl mb-4 mt-8 border-after border-after-center">{title}</h2>
+    <div class="md:flex justify-center content-center flex-wrap">
+      <p class="leading-normal font-light md:w-1/2 px-8 mb-8">
+        {text1}
+      </p>
+      <p class="leading-normal font-light md:w-1/2 px-8">
+        {text2}
+      </p>
+    </div>
+  </div>
+</section>
+
+<form on:submit="submitForm(event)">
+  <input type="text" name="name" bind:value="name">
+  <textarea name="message" id="" cols="30" rows="10" bind:value="msg"></textarea>
+  <button type="submit" on:click="$contactFormData({name, msg})" >Send</button>
+</form>
+
+
+
+<script>
+  export default {
+    data() {
+      return {
+        name: '',
+        msg: '',
+      }
+    },
+    methods: {
+      submitForm(e) {
+        e.preventDefault();
+        
+        console.log('e', this.get());
+      }
+    }
+  }
+</script>
