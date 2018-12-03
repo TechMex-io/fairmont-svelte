@@ -18,13 +18,20 @@ class AppStore extends Store {
       })
     })
     .then(entry => entry.json())
-    .then(entry => console.log('entry', entry));
+    .catch(err => {
+      console.log('err', err);
+      this.set({formData: {error: err} });
+    });
+    
+    console.log('formData', formData);
+    this.set({formData})
   }
 }
 
 export const store = new AppStore({
   name: 'Justo',
   homepage: {},
+  formData: {},
 });
 
 store.fetchPages();

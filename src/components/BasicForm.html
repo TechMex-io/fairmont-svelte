@@ -1,0 +1,33 @@
+<form on:submit="submitForm(event)">
+  <input type="text" name="name" bind:value="name">
+  <input type="hidden" name="namelast" bind:value="namelast">
+  <textarea name="message" id="" cols="30" rows="10" bind:value="msg"></textarea>
+  <button type="submit" on:click="$contactFormData({name, msg, namelast})">Send</button>
+</form>
+
+{#if $formData.name}
+  Thank you, {$formData.name}
+{/if}
+
+{#if $formData.error}
+  Sorry, there was an error
+{/if}
+  
+  
+<script>
+  export default {
+    data() {
+      return {
+        name: '',
+        msg: '',
+        namelast: '',
+      }
+    },
+    methods: {
+      submitForm(e) {
+        e.preventDefault();
+        this.set({name: '', msg: ''});
+      }
+    }
+  }
+</script>
