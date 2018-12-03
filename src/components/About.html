@@ -12,28 +12,14 @@
   </div>
 </section>
 
-<form on:submit="submitForm(event)">
-  <input type="text" name="name" bind:value="name">
-  <textarea name="message" id="" cols="30" rows="10" bind:value="msg"></textarea>
-  <button type="submit" on:click="$contactFormData({name, msg})" >Send</button>
-</form>
-
-
+<BasicForm />
 
 <script>
+  import BasicForm from './BasicForm.html';
+
   export default {
-    data() {
-      return {
-        name: '',
-        msg: '',
-      }
-    },
-    methods: {
-      submitForm(e) {
-        e.preventDefault();
-        
-        console.log('e', this.get());
-      }
+    components: {
+      BasicForm
     }
   }
 </script>
